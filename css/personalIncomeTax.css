@@ -1,0 +1,73 @@
+*{
+	box-sizing: border-box;
+}
+
+/*.main
+{
+	border: solid;
+}*/
+
+body{
+width:500px;
+margin: auto;
+margin-top: 50px;
+}
+
+* > #inner{
+	margin: 20px 0;
+}
+
+#part1{
+	float: left;
+	height: 100px;
+}
+
+#input{
+	float: left;
+	width: 300px;
+}
+
+#button_wrap{
+	float: left;
+	width: 100px;
+}
+
+.button{
+	width: 80px;
+}
+
+#shebaogongjijin_wrap{
+	clear: both;
+	width: 380px;
+	height: 100px;
+	background-color: #ccffff;
+}
+
+.shebaogongjijin{
+	border:none;
+	border-bottom:black solid 1px;
+	text-align: center;
+	background-color: #ccffff;
+	width: 85px;
+}
+
+#history_wrap{
+	float: left;
+	width: 80px;
+	position: relative;
+	top: -25px;
+}
+
+.history{
+	height: 200px;
+	width: 150px;
+	background-color: #ccffff;
+}
+
+#detail{
+	clear: left;
+}
+
+.rate{
+width:50px;
+}

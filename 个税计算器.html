@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app='PersonalIncomeTax'>
+<head>
+	<title>个税计算器_zhangyaowu 00189322</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/personalIncomeTax.css">
+	<script type="text/javascript" src='js/lib/angular/angular.js'></script>
+	<script type="text/javascript" src='js/controllers.js'></script>
+</head>
+<body>
+	<div ng-controller='PersonalIncomeTaxController' class='main'>
+		<div id="part1">
+			<div id="input">
+				<div>
+					<label>税前工资：</label>
+					<input type="number" ng-model='pit.shuiqian'></input>元
+				</div>
+				<div>
+					<label>税后工资：</label>
+					<input type="number" ng-model='pit.shuihou'></input>元
+				</div>
+				<div>
+					<label>应缴个税：</label>
+					<input type="number" ng-model='pit.geshui'></input>元
+				</div>
+			</div>
+			<div id="button_wrap">
+			<!--background-image: url('images/button.png')-->
+				<div id="inner">
+					<button class="button" ng-click='pit.getTax()'>
+						<span>计算</span>
+					</button>
+					<button class="button" ng-click='pit.getShuiqian()'>
+						<span>反推税前</span>
+					</button>
+				</div>
+			</div>
+			<div id="shebaogongjijin_wrap">
+				<label>社保与公积金</label><br>
+				个人缴纳：<input class="shebaogongjijin" ng-model='pit.geren'></input>
+				单位缴纳：<input class="shebaogongjijin" ng-model='pit.danwei'></input>
+			</div>
+		</div>
+		<div id="history_wrap">
+			<label>历史记录：</label>
+			<div class="history">
+				<div ng-repeat='his in pit.history'>
+					{{his}}
+				</div>
+			</div>
+		</div>
+		<div id="detail">
+			<label style="margin:0 170px;">社保与公积金缴费明细</label>
+			<table class="table table-striped">
+			<thead>
+				<th>缴费项目</th>
+				<th>个人比例</th>
+				<th><span>单位比例</span><span>（<span style="color: #0ff;">单位：元</span>）</span></th>
+			</thead>
+			<tbody>
+				<tr ng-repeat='mingxi in pit.mingxis'>
+					<td>{{mingxi.name}}</td>
+					<td><input ng-model='mingxi.gerenRate' type="number" class="rate"></input>%</td>
+					<td><input ng-model='mingxi.danweiRate' type="number" class="rate"></input>%</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
